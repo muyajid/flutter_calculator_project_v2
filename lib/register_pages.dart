@@ -65,6 +65,8 @@ class _RegisterPagesState extends State<RegisterPages> {
             InputWidgets(
               usernameController: _usernameController,
               passwordController: _passwordController,
+              inputNumberOne: "Username",
+              inputNumberTwo: "Password",
             ),
             Container(
               margin: EdgeInsets.only(top: 14),

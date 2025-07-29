@@ -79,6 +79,8 @@ class _LoginPagesState extends State<LoginPages> {
             InputWidgets(
               usernameController: _usernameController,
               passwordController: _passwordController,
+              inputNumberOne: "Username",
+              inputNumberTwo: "Password",
             ),
 
             Container(
