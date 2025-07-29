@@ -16,41 +16,39 @@ class ButtonWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 6.5),
-            child: ElevatedButton(
-              onPressed: onPresedOne,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.greenAccent,
-                foregroundColor: Colors.white,
-                fixedSize: Size(300, 50),
-              ),
-              child: Text(
-                buttonOne,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.only(bottom: 6.5),
+          child: ElevatedButton(
+            onPressed: onPresedOne,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.greenAccent,
+              foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+              fixedSize: Size(300, 50),
+            ),
+            child: Text(
+              buttonOne,
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 6.5),
-            child: ElevatedButton(
-              onPressed: onPresedTwo,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 149, 239, 196),
-                foregroundColor: Colors.black,
-                fixedSize: Size(300, 50),
-              ),
-              child: Text(
-                buttonTwo,
-                style: TextStyle(fontWeight: FontWeight.w500),
-              ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 6.5),
+          child: ElevatedButton(
+            onPressed: onPresedTwo,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 149, 239, 196),
+              foregroundColor: Colors.black,
+              fixedSize: Size(300, 50),
+            ),
+            child: Text(
+              buttonTwo,
+              style: TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
