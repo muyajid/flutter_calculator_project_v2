@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputWidgets extends StatelessWidget {
   final TextEditingController usernameController;
   final TextEditingController passwordController;
   final String inputNumberOne;
   final String inputNumberTwo;
+  final bool secure;
+  final List<TextInputFormatter>? inputFormater;
 
   const InputWidgets({
     super.key,
@@ -12,6 +15,8 @@ class InputWidgets extends StatelessWidget {
     required this.passwordController,
     required this.inputNumberOne,
     required this.inputNumberTwo,
+    required this.secure,
+    this.inputFormater,
   });
 
   @override
@@ -24,6 +29,7 @@ class InputWidgets extends StatelessWidget {
           height: 50,
           child: TextField(
             controller: usernameController,
+            inputFormatters: inputFormater,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: inputNumberOne,
@@ -36,6 +42,8 @@ class InputWidgets extends StatelessWidget {
           height: 50,
           child: TextField(
             controller: passwordController,
+            obscureText: secure,
+            inputFormatters: inputFormater,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: inputNumberTwo,

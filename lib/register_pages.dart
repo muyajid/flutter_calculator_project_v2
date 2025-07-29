@@ -67,6 +67,7 @@ class _RegisterPagesState extends State<RegisterPages> {
               passwordController: _passwordController,
               inputNumberOne: "Username",
               inputNumberTwo: "Password",
+              secure: true,
             ),
             Container(
               margin: EdgeInsets.only(top: 14),

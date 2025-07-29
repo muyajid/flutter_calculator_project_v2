@@ -81,6 +81,7 @@ class _LoginPagesState extends State<LoginPages> {
               passwordController: _passwordController,
               inputNumberOne: "Username",
               inputNumberTwo: "Password",
+              secure: true,
             ),
 
             Container(
