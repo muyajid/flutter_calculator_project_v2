@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_calculator_project_v2/button_widgets.dart';
 import 'package:flutter_calculator_project_v2/input_widgets.dart';
 import 'package:flutter_calculator_project_v2/login_pages.dart';
+import 'package:intl/intl.dart';
 
 class RegisterPages extends StatefulWidget {
   const RegisterPages({super.key});
@@ -14,24 +15,10 @@ class _RegisterPagesState extends State<RegisterPages> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   String? gender;
   DateTime? selectedDate;
-
-  Future<void> _selectDate() async {
-    DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-    );
-
-    if (picked != null) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,30 +90,31 @@ class _RegisterPagesState extends State<RegisterPages> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 35),
+              margin: EdgeInsets.only(bottom: 12),
               width: 300,
-              height: 70,
-              child: ListTile(
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 0,
+              height: 50,
+              child: TextField(
+                controller: _dateController,
+                readOnly: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Tanggal Lahir",
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: Colors.grey.shade400),
-                ),
-                title: Text(
-                  "Tanggal Lahir",
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(
-                  selectedDate == null
-                      ? "Pilih tanggal"
-                      : "${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}",
-                  style: TextStyle(fontSize: 12, color: Colors.black87),
-                ),
-                trailing: Icon(Icons.calendar_today, color: Colors.greenAccent),
-                onTap: _selectDate,
+                onTap: () async {
+                  final DateTime? picked = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(1700),
+                    lastDate: DateTime(2500),
+                  );
+
+                  if (picked != null) {
+                    String format = DateFormat('d MM yyyy').format(picked);
+                    _dateController.text = format;
+                  } else {
+                    _dateController.text = "Tanggal Lahir";
+                  }
+                },
               ),
             ),
             ButtonWidgets(
