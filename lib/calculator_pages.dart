@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_calculator_project_v2/input_widgets.dart';
+import 'package:flutter_calculator_project_v2/widget/input_widgets.dart';
 
 class CalculatorPages extends StatefulWidget {
   const CalculatorPages({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator_project_v2/button_widgets.dart';
+import 'package:flutter_calculator_project_v2/widget/button_widgets.dart';
 import 'package:flutter_calculator_project_v2/calculator_pages.dart';
-import 'package:flutter_calculator_project_v2/input_widgets.dart';
+import 'package:flutter_calculator_project_v2/widget/input_widgets.dart';
 import 'package:flutter_calculator_project_v2/register_pages.dart';
 
 class LoginPages extends StatefulWidget {

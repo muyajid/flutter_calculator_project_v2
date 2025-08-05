@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculator_project_v2/button_widgets.dart';
-import 'package:flutter_calculator_project_v2/input_widgets.dart';
+import 'package:flutter_calculator_project_v2/widget/button_widgets.dart';
+import 'package:flutter_calculator_project_v2/widget/input_widgets.dart';
 import 'package:flutter_calculator_project_v2/login_pages.dart';
 import 'package:intl/intl.dart';
 
