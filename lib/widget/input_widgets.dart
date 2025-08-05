@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class InputWidgets extends StatelessWidget {
-  final TextEditingController usernameController;
-  final TextEditingController passwordController;
+  final TextEditingController? usernameController;
+  final TextEditingController? passwordController;
   final String inputNumberOne;
   final String inputNumberTwo;
   final bool secure;
@@ -11,8 +11,8 @@ class InputWidgets extends StatelessWidget {
 
   const InputWidgets({
     super.key,
-    required this.usernameController,
-    required this.passwordController,
+    this.usernameController,
+    this.passwordController,
     required this.inputNumberOne,
     required this.inputNumberTwo,
     required this.secure,
