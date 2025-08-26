@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_calculator_project_v2/controller/footbal_controller.dart';
 import 'package:flutter_calculator_project_v2/model/player_model.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 class FootbalEditController extends GetxController {
   final FootbalController footbalController = Get.find();
@@ -13,21 +11,36 @@ class FootbalEditController extends GetxController {
   final posisiPlayerController = TextEditingController();
   final nomorPunggungController = TextEditingController();
 
-  void loadPages(int index) {
-    final listTile = footbalController.clubs[index];
-    imgPlayerController.text = listTile.imgPlayer;
-    namePlayerController.text = listTile.namaPlayer;
-    posisiPlayerController.text = listTile.posisiPlayer;
-    nomorPunggungController.text = listTile.nomorPunggung;
+  late int index;
+
+  @override
+  void onInit() {
+    super.onInit();
+    index = Get.arguments as int;
+
+    print("Selected index: $index");
+    print("Data sebelum edit: ${footbalController.clubs[index]}");
+
+    loadPages(index);
   }
 
-  void editData(int index) {
+  void loadPages(int index) {
+    final player = footbalController.clubs[index];
+    imgPlayerController.text = player.imgPlayer;
+    namePlayerController.text = player.namaPlayer;
+    posisiPlayerController.text = player.posisiPlayer;
+    nomorPunggungController.text = player.nomorPunggung;
+  }
+
+  void editData() {
     footbalController.clubs[index] = PlayerModel(
-      imgPlayerController.text.toString(),
-      namePlayerController.text.toString(),
-      posisiPlayerController.text.toString(),
-      nomorPunggungController.text.toString(),
+      imgPlayerController.text,
+      namePlayerController.text,
+      posisiPlayerController.text,
+      nomorPunggungController.text,
     );
+
+    print("Data setelah edit: ${footbalController.clubs[index]}");
 
     Get.back();
   }

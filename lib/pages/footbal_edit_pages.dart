@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_calculator_project_v2/controller/footbal_edit_controller.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/instance_manager.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 class FootbalEdit extends StatelessWidget {
   FootbalEdit({super.key});
+
   final FootbalEditController editController = Get.put(FootbalEditController());
 
   @override
   Widget build(BuildContext context) {
-    final int index = Get.arguments;
-    editController.loadPages(index);
-
     return Scaffold(
-      appBar: AppBar(title: Text("Footbal Editing")),
-      body: Container(
-        alignment: Center().alignment,
+      appBar: AppBar(title: const Text("Footbal Editing")),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -26,56 +20,58 @@ class FootbalEdit extends StatelessWidget {
               height: 60,
               child: TextField(
                 controller: editController.imgPlayerController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'imgPlayer',
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
+            const SizedBox(height: 12),
             SizedBox(
               width: 300,
               height: 60,
               child: TextField(
                 controller: editController.namePlayerController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'namaPlayer',
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
+            const SizedBox(height: 12),
             SizedBox(
               width: 300,
               height: 60,
               child: TextField(
                 controller: editController.posisiPlayerController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'posisiPlayer',
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
+            const SizedBox(height: 12),
             SizedBox(
               width: 300,
               height: 60,
               child: TextField(
                 controller: editController.nomorPunggungController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'nomorPunggung',
                   border: OutlineInputBorder(),
                 ),
               ),
             ),
+            const SizedBox(height: 24),
             SizedBox(
               width: 250,
               height: 60,
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue, // Warna biru
-                ),
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                 onPressed: () {
-                  editController.editData(index);
+                  editController.editData(); // ✅ cukup ini
                 },
-                child: Text(
+                child: const Text(
                   'Save',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
