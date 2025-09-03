@@ -8,8 +8,9 @@ import 'package:get/get.dart';
 
 class CalculatorPages2 extends StatelessWidget {
   CalculatorPages2({super.key});
-  final CalculatorController controller = Get.put(CalculatorController());
-
+  // Kalau pakai binding di inject nya di binding controller nya
+  //final CalculatorController controller = Get.put(CalculatorController());
+  final controller = Get.find<CalculatorController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,10 +52,7 @@ class CalculatorPages2 extends StatelessWidget {
               ),
             ),
           ),
-          ButtonCalulate(
-            ops: "C",
-            onPresed: () => Get.offAllNamed(AppRoutes.footballPlayers),
-          ),
+          ButtonCalulate(ops: "C", onPresed: () => controller.clear()),
           ButtonCalulate(
             ops: "M",
             onPresed: () => Get.toNamed(AppRoutes.footballPlayers),

@@ -9,8 +9,8 @@ import 'package:get/route_manager.dart';
 
 class FootballPages extends StatelessWidget {
   FootballPages({super.key});
-  final FootbalController footbalController = Get.put(FootbalController());
-
+  // final FootbalController footbalController = Get.put(FootbalController());
+  final footbalController = Get.find<FootbalController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
